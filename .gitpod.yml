@@ -2,14 +2,12 @@ image:
   file: pharo.dockerfile
 
 ports:
-  - port: 5900
+  - port: 5900           # standard vnc viewer - not used in this repo
     onOpen: ignore
   - port: 6080
-    onOpen: open-browser
+    onOpen: open-browser # novnc viewer to workspace desktop
 
 tasks:
   - name: pharo
-    init: curl -o pharo-launcher.zip -L https://files.pharo.org/pharo-launcher/linux64 && \
-          unzip -q pharo-launcher.zip && \
-          rm pharo-launcher.zip
+    init: ./get-pharo.sh
     command: ./pharolauncher/pharo-launcher
