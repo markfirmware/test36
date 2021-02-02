@@ -1,0 +1,15 @@
+image:
+  file: pharo.dockerfile
+
+ports:
+  - port: 5900
+    onOpen: ignore
+  - port: 6080
+    onOpen: open-browser
+
+tasks:
+  - name: pharo
+    init: curl -o pharo-launcher.zip -L https://files.pharo.org/pharo-launcher/linux64 && \
+          unzip -q pharo-launcher.zip && \
+          rm pharo-launcher.zip
+    command: ./pharolauncher/pharo-launcher
