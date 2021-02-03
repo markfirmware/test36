@@ -10,4 +10,4 @@ ports:
 tasks:
   - name: pharo
     init: ./get-pharo.sh
-    command: ./pharolauncher/pharo-launcher
+    command: HOME=$(pwd) ./pharolauncher/pharo-launcher
